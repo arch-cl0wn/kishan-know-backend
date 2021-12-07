@@ -1,9 +1,9 @@
 import Adafruit_AMG88xx_thermalcamtest as Adafruit
-import csv
 
-with open('microbedatasetcsv.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    for row in csv_reader:
-        if Adafruit.diff>=row["MTD_initial"] and Adafruit.diff<=row["MTD_final"]:
-            print(row["Microbe_Name"])
+with open('/home/pi/Adafruit_CircuitPython_AMG88xx/examples/data.txt','r') as f:
+    l=f.readlines()
+    for row in l:
+        words=row.strip().split(",")
+        if (Adafruit.diff>=float(words[1])) and (Adafruit.diff<=float(words[2])):
+            print(words[0])
 
