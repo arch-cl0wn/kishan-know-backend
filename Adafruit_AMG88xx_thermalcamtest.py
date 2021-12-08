@@ -6,6 +6,7 @@ import busio
 import board
 import adafruit_amg88xx
 from firebase import firebase
+import data_checker as dc
 
 i2c = busio.I2C(board.SCL, board.SDA)
 amg = adafruit_amg88xx.AMG88XX(i2c)
@@ -29,4 +30,5 @@ while True:
     result2=firebase.get('/farm_temperature',None)
     diff=result2-res
     result3=firebase.post('/Absolute_Temperature',diff)
-    time.sleep(1)
+    dc.call_func()
+    time.sleep(120)
