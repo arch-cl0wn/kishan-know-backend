@@ -2,6 +2,7 @@ import os
 import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
+import kishanknowmodel
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = 'static/uploads/'
@@ -41,6 +42,13 @@ def upload_image():
 def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+def prediction_message():
+	if kishanknowmodel.prediction[0]>0.9:
+		flash('It is not infected.')
+	else:
+		flash('It is infected.')
+	
 
 if __name__ == "__main__":
     app.run()
