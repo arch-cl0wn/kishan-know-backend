@@ -1,4 +1,12 @@
-body {
-    background-image: url("/images/bg.png");
-    background-color: #cccccc;
-   }
+.body {
+    /* background-image: url("static\images\bg.jpg") !important;
+    display :flex;
+
+    background-color: #cccccc !important; 
+
+    justify-content: center !important;
+    justify-items: center !important;
+    align-content: center !important;
+    align-items: center !important; */
+background: #c1c1c1;   
+}

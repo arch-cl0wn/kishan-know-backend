@@ -15,6 +15,7 @@ import numpy as np
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = r'D:\kishan-know-backend\static\uploads'
 filename=''
+message=''
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -68,8 +69,10 @@ def upload_image():
 		prediction = model.predict(data)
 		if prediction[0][1] > prediction[0][0]:
 			flash('It is infected')
+			message='It is infected'
 		else:
 			flash('It is safe')
+			message='It is safe'
 		print(type(prediction))
 
 
