@@ -3,42 +3,94 @@
 
 <head>
 	<link rel="stylesheet" href="../static/css/upload.css">
+	<style>
+		.backdrop {
+			backdrop-filter: blur(5px);
+			background: #1e1e1e5e;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			color: #ffffff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		.modal {
+			background-color: #ffffff;
+			color: black;
+			padding: 4rem;
+			border-radius: 1rem;
+		}
+
+		.button {
+			width: 100%;
+			margin-top: 10px;
+			border: 0;
+			border-radius: 50px;
+			height: 48px;
+			font-size: 16px;
+			background: linear-gradient(232deg, #02aab0, #00cdac);
+			font-weight: 700;
+			cursor: pointer;
+			color: #fff;
+		}
+	</style>
 </head>
 
-<body style="background: url(./bg.jpg);">
+<body
+	style='background: url("https://uploads.codesandbox.io/uploads/user/fe6714fa-748d-456c-b7d9-7c409333d5e9/U5AT-bg.jpg");'>
 	<div
 		style="backdrop-filter: blur(5px); background: #1e1e1e5e; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; color: #ffffff; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-		<h1>KISHAN KNOW</h1>
-		<h3>Select a file to upload</h3>
-		<p>
-			{% with messages = get_flashed_messages() %}
-			{% if messages %}
-		<ul>
-			{% for message in messages %}
-			<li>{{ message }}</li>`
-			{% endfor %}
-		</ul>
-		{% endif %}
-		{% endwith %}
-		</p>
-		{% if filename %}
-		<div>
-			<img src="{{ url_for('display_image', filename=filename) }}">
-		</div>
-		{% endif %}
-		<form method="post" action="/" enctype="multipart/form-data">
-			<dl>
+		<div calss="backdrop">
+			<div class="modal">
+				<h1>
+					Kishan Know
+				</h1>
+				<h3>
+					Upload the heatmap of the field
+				</h3>
 				<p>
-					<input type="file" name="file" autocomplete="off" required>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+				<ul>
+					{% for message in messages %}
+					<li>{{ message }}</li>`
+					{% endfor %}
+				</ul>
+				{% endif %}
+				{% endwith %}
 				</p>
-			</dl>
-			<p>
-				<input type="submit" value="Submit">
-			</p>
+				{% if filename %}
+				<div>
+					<img src="{{ url_for('display_image', filename=filename) }}">
+				</div>
+				{% endif %}
+				<form method="post" action="/upload_form" enctype="multipart/form-data">
+					<dl>
+						<p>
+							<input type="file" name="file" autocomplete="off" required>
+						</p>
+					</dl>
+					<p>
+						<input type="submit" value="Submit" class="button">
+					</p>
+					<p>
 
-		</form>
+						<a class="button" href="data">
+							Next
+						</a>
+					</p>
+
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
+
 
 </html>
 

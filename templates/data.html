@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <link rel="stylesheet" href="styles.css" />
+    
+    
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // import { initializeApp, database } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDCegGKglVabpSU0azB89Cc31Ebsm6KknM",
+            authDomain: "kishanknow-8a73c.firebaseapp.com",
+            databaseURL: "https://kishanknow-8a73c-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "kishanknow-8a73c",
+            storageBucket: "kishanknow-8a73c.appspot.com",
+            messagingSenderId: "339262697834",
+            appId: "1:339262697834:web:995c3393e3483467cbf513",
+            measurementId: "G-6BERQRHKD7"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+console.log(app)
+
+
+var database = firebase.database();
+console.log(database)
+
+const data = firebase.database().ref('Absolute_Temperature')
+console.log("IMP",data)
+
+data.on('value', (snapshot) => {
+  const _data = snapshot.val();
+  const last_Data = Object.values(_data)[Object.values(_data).length - 1]
+  var status = "";
+  status += last_Data;
+  status += "<br>";
+  if(last_Data >= 2){
+    status +=  "Infected";
+    
+  }else{status += "Not Infected";  }
+
+  document.body.innerHTML = status;
+});
+//         var auth = firebase.auth();
+//  var storageRef = firebase.storage().ref();
+//  var db = firebase.database();
+
+//  console.log(db)
+    </script> 
+    <style>
+      .btn-next {
+        background: #c1c1c1;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      body {
+  font-family: "DM Sans", sans-serif;
+  background: url("https://uploads.codesandbox.io/uploads/user/fe6714fa-748d-456c-b7d9-7c409333d5e9/U5AT-bg.jpg");
+  }
+
+  .backdrop {
+    backdrop-filter: blur(5px);
+    background: #1e1e1e5e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .modal {
+    background-color: #ffffff;
+    color: black;
+    padding: 4rem;
+    border-radius: 1rem;
+    }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>
+</head>
+
+
+
+<body>
+  
+
+    <script>
+    
+
+    console.log(fireabase)
+    var database = firebase.database();
+
+
+
+    console.log(globalThis)
+    console.log(this)
+    console.log(window)
+    
+    // const database = getDatabase("Absolute_Temperature");
+    
+     </script>
+</body>
+
+</html>
