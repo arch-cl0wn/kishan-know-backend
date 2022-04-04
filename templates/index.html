@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Kishan Know</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .btn-next {
+        background: #c1c1c1;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      body {
+  font-family: "DM Sans", sans-serif;
+  background: url("https://uploads.codesandbox.io/uploads/user/fe6714fa-748d-456c-b7d9-7c409333d5e9/U5AT-bg.jpg");
+}
+
+.backdrop {
+  backdrop-filter: blur(5px);
+  background: #1e1e1e5e;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal {
+  background-color: #ffffff;
+  color: black;
+  padding: 4rem;
+  border-radius: 1rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="backdrop">
+      <div style="padding-bottom: 50px" ><h1>KISHAN KNOW</h1></div>
+      <div class="modal">
+        <form action="">
+          <h1>Login</h1>
+          <input type="text" name="" id="" placeholder="Username" />
+          <input type="text" name="" id="" placeholder="Password" />
+          <!-- <button> -->
+          <a href="map" class="btn-next">
+            Login
+          </a>
+          <!-- </button> -->
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
